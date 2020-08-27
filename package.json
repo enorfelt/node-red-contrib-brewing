@@ -1,0 +1,29 @@
+{
+  "name": "node-red-contrib-brewing",
+  "version": "1.0.0",
+  "description": "A set of node-red nodes related to beer brewing",
+  "scripts": {
+    "test": "mocha \"test/**/*_spec.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enorfelt/node-red-contrib-brewing.git"
+  },
+  "author": "Erik Norfelt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enorfelt/node-red-contrib-brewing/issues"
+  },
+  "homepage": "https://github.com/enorfelt/node-red-contrib-brewing#readme",
+  "keywords": [ "node-red" ],
+  "node-red": {
+    "nodes": {
+      "pressure-to-water-column": "pressure-to-water-column.js"
+    }
+  },
+  "devDependencies": {
+    "mocha": "^8.1.2",
+    "node-red": "^1.1.3",
+    "node-red-node-test-helper": "^0.2.5"
+  }
+}
