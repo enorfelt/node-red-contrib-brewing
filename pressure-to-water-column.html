@@ -1,26 +1,55 @@
 <script type="text/javascript">
-  RED.nodes.registerType("lower-case", {
+  RED.nodes.registerType("pressure-to-water-column", {
     category: "function",
     color: "#a6bbcf",
     defaults: {
       name: { value: "" },
+      valueProperty: { value: "payload.value", required: true },
+      voltageProperty: { value: "payload.voltage" },
+      voltLow: { value: 0, required: true },
+      voltHigh: { value: 5, required: true },
+      pressureLow: { value: 0, required: true },
+      pressureHigh: { value: 6, required: true },
+      sensorHight: { value: 4, required: true },
     },
     inputs: 1,
     outputs: 1,
     icon: "file.png",
     label: function () {
-      return this.name || "lower-case";
+      return this.name || "pressure-to-water-column";
+    },
+    oneditprepare: function() {
+      $("#node-input-value-property").typedInput({
+        type:"msg",
+        types:["msg"],
+        typeField: "#node-input-value-property-type"
+      });
+      $("#node-input-voltage-property").typedInput({
+        type:"msg",
+        types:["msg"],
+        typeField: "#node-input-voltage-property-type"
+      });
     },
   });
 </script>
 
-<script type="text/html" data-template-name="lower-case">
+<script type="text/html" data-template-name="pressure-to-water-column">
   <div class="form-row">
       <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
       <input type="text" id="node-input-name" placeholder="Name">
   </div>
+  <div class="form-row">
+    <label for="node-input-value-property"><i class="fa fa-tag"></i> Value input</label>
+    <input type="text" id="node-input-value-property" placeholder="value">
+    <input type="hidden" id="node-input-value-property-type">
+  </div>
+  <div class="form-row">
+    <label for="node-input-voltage-property"><i class="fa fa-tag"></i> Voltage input</label>
+    <input type="text" id="node-input-voltage-property" placeholder="voltage">
+    <input type="hidden" id="node-input-voltage-property-type">
+  </div>
 </script>
 
-<script type="text/html" data-help-name="lower-case">
+<script type="text/html" data-help-name="pressure-to-water-column">
   <p>A simple node that converts the message payloads into all lower-case characters</p>
 </script>
