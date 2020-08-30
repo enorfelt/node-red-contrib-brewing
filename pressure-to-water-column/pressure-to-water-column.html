@@ -1,0 +1,105 @@
+<script type="text/javascript">
+  RED.nodes.registerType("pressure-to-water-column", {
+    category: "brewing",
+    color: "#a6bbcf",
+    defaults: {
+      name: { value: "" },
+      valueProperty: { value: "payload.value", required: true },
+      voltageProperty: { value: "payload.voltage" },
+      voltLow: { value: 0, required: true, validate:RED.validators.number() },
+      voltHigh: { value: 5, required: true , validate:RED.validators.number()},
+      pressureLow: { value: 0, required: true, validate:RED.validators.number() },
+      pressureHigh: { value: 6, required: true, validate:RED.validators.number() },
+      sensorHight: { value: 4, required: true, validate:RED.validators.number() },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "file.png",
+    label: function () {
+      return this.name || "pressure-to-water-column";
+    },
+    oneditprepare: function() {
+      $("#node-input-value-property").typedInput({
+        type:"msg",
+        types:["msg"],
+        typeField: "#node-input-value-property-type"
+      });
+      $("#node-input-voltage-property").typedInput({
+        type:"msg",
+        types:["msg"],
+        typeField: "#node-input-voltage-property-type"
+      });
+      $("#node-input-volt-low").typedInput({
+        type:"num",
+        types:["num"],
+        typeField: "#node-input-volt-low-type"
+      });
+      $("#node-input-volt-high").typedInput({
+        type:"num",
+        types:["num"],
+        typeField: "#node-input-volt-high-type"
+      });
+      $("#node-input-pressure-low").typedInput({
+        type:"num",
+        types:["num"],
+        typeField: "#node-input-pressure-low-type"
+      });
+      $("#node-input-pressure-high").typedInput({
+        type:"num",
+        types:["num"],
+        typeField: "#node-input-pressure-high-type"
+      });
+      $("#node-input-sensor-hight").typedInput({
+        type:"num",
+        types:["num"],
+        typeField: "#node-input-sensor-hight-type"
+      });
+    },
+  });
+</script>
+
+<script type="text/html" data-template-name="pressure-to-water-column">
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+  <div class="form-row">
+    <label for="node-input-value-property"><i class="fa fa-tag"></i> Value input</label>
+    <input type="text" id="node-input-value-property" placeholder="value">
+    <input type="hidden" id="node-input-value-property-type">
+  </div>
+  <div class="form-row">
+    <label for="node-input-voltage-property"><i class="fa fa-tag"></i> Voltage input</label>
+    <input type="text" id="node-input-voltage-property" placeholder="voltage">
+    <input type="hidden" id="node-input-voltage-property-type">
+  </div>
+  <div class="form-row">
+    <label for="node-input-volt-low"><i class="fa fa-tag"></i> Voltage low</label>
+    <input type="text" id="node-input-volt-low">
+    <input type="hidden" id="node-input-volt-low-type" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-volt-high"><i class="fa fa-tag"></i> Voltage high</label>
+    <input type="text" id="node-input-volt-high">
+    <input type="hidden" id="node-input-volt-high-type" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-pressure-low"><i class="fa fa-tag"></i> Pressure low</label>
+    <input type="text" id="node-input-pressure-low">
+    <input type="hidden" id="node-input-pressure-low-type" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-pressure-high"><i class="fa fa-tag"></i> Pressure high</label>
+    <input type="text" id="node-input-pressure-high">
+    <input type="hidden" id="node-input-pressure-high-type" />
+  </div>
+  <div class="form-row">
+    <label for="node-input-sensor-hight"><i class="fa fa-tag"></i> Sensor hight</label>
+    <input type="text" id="node-input-sensor-hight">
+    <input type="hidden" id="node-input-volt-sensor-hight-type" />
+  </div>
+</script>
+
+<script type="text/html" data-help-name="pressure-to-water-column">
+  <p>A node that converts a pressure value/voltage to water column hight</p>
+</script>

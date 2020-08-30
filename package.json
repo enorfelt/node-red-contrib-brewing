@@ -18,7 +18,7 @@
   "keywords": [ "node-red" ],
   "node-red": {
     "nodes": {
-      "pressure-to-water-column": "pressure-to-water-column.js"
+      "pressure-to-water-column": "pressure-to-water-column/pressure-to-water-column.js"
     }
   },
   "devDependencies": {

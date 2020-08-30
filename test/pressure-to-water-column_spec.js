@@ -1,6 +1,6 @@
 var should = require("should");
 var helper = require("node-red-node-test-helper");
-var pressureToWc = require("../pressure-to-water-column.js");
+var pressureToWc = require("../pressure-to-water-column/pressure-to-water-column.js");
  
 helper.init(require.resolve('node-red'));
  
